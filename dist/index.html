@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>RREF</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;display=swap" crossorigin>
+<link rel="preload" as="style" href="./_observablehq/theme-air,near-midnight.e68849dc.css">
+<link rel="preload" as="style" href="./_observablehq/stdlib/inputs.ea9fd553.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;display=swap" crossorigin>
+<link rel="stylesheet" type="text/css" href="./_observablehq/theme-air,near-midnight.e68849dc.css">
+<link rel="stylesheet" type="text/css" href="./_observablehq/stdlib/inputs.ea9fd553.css">
+<link rel="modulepreload" href="./_observablehq/client.fe862d18.js">
+<link rel="modulepreload" href="./_observablehq/runtime.56d81cb2.js">
+<link rel="modulepreload" href="./_observablehq/stdlib.831f6193.js">
+<link rel="modulepreload" href="./_npm/d3@7.9.0/7055d4c5.js">
+<link rel="modulepreload" href="./_npm/htl@0.3.1/063eb405.js">
+<link rel="modulepreload" href="./_observablehq/stdlib/inputs.f43fa668.js">
+<link rel="modulepreload" href="./_npm/isoformat@0.2.1/c68fbd73.js">
+<link rel="modulepreload" href="./_npm/d3-array@3.2.4/e95f898e.js">
+<link rel="modulepreload" href="./_npm/d3-axis@3.0.0/d44feff9.js">
+<link rel="modulepreload" href="./_npm/d3-brush@3.0.0/5830b12a.js">
+<link rel="modulepreload" href="./_npm/d3-chord@3.0.1/84d7b8e9.js">
+<link rel="modulepreload" href="./_npm/d3-color@3.1.0/2c0cdfa2.js">
+<link rel="modulepreload" href="./_npm/d3-contour@4.0.2/626bedc4.js">
+<link rel="modulepreload" href="./_npm/d3-delaunay@6.0.4/00c41b5d.js">
+<link rel="modulepreload" href="./_npm/d3-dispatch@3.0.1/b5f7cdc6.js">
+<link rel="modulepreload" href="./_npm/d3-drag@3.0.0/b22c5864.js">
+<link rel="modulepreload" href="./_npm/d3-dsv@3.0.1/407f7a1f.js">
+<link rel="modulepreload" href="./_npm/d3-ease@3.0.1/6f15f633.js">
+<link rel="modulepreload" href="./_npm/d3-fetch@3.0.1/ef1ec490.js">
+<link rel="modulepreload" href="./_npm/d3-force@3.0.0/5e1ff060.js">
+<link rel="modulepreload" href="./_npm/d3-format@3.1.0/5851d7ef.js">
+<link rel="modulepreload" href="./_npm/d3-geo@3.1.1/dcd02767.js">
+<link rel="modulepreload" href="./_npm/d3-hierarchy@3.1.2/f1db2593.js">
+<link rel="modulepreload" href="./_npm/d3-interpolate@3.0.1/034b7bcb.js">
+<link rel="modulepreload" href="./_npm/d3-path@3.1.0/4bb53638.js">
+<link rel="modulepreload" href="./_npm/d3-polygon@3.0.1/bbafde58.js">
+<link rel="modulepreload" href="./_npm/d3-quadtree@3.0.1/aa5b35a8.js">
+<link rel="modulepreload" href="./_npm/d3-random@3.0.1/32c7fec2.js">
+<link rel="modulepreload" href="./_npm/d3-scale@4.0.2/567840a0.js">
+<link rel="modulepreload" href="./_npm/d3-scale-chromatic@3.1.0/cf9b720b.js">
+<link rel="modulepreload" href="./_npm/d3-selection@3.0.0/5dcd62f4.js">
+<link rel="modulepreload" href="./_npm/d3-shape@3.2.0/f8e03c56.js">
+<link rel="modulepreload" href="./_npm/d3-time@3.1.0/5bc129e1.js">
+<link rel="modulepreload" href="./_npm/d3-time-format@4.1.0/19c92b44.js">
+<link rel="modulepreload" href="./_npm/d3-timer@3.0.1/f31b5398.js">
+<link rel="modulepreload" href="./_npm/d3-transition@3.0.1/8debb4ba.js">
+<link rel="modulepreload" href="./_npm/d3-zoom@3.0.0/4b0cc581.js">
+<link rel="modulepreload" href="./_npm/internmap@2.0.3/5eed35fd.js">
+<link rel="modulepreload" href="./_npm/delaunator@5.0.1/e67acb27.js">
+<link rel="modulepreload" href="./_npm/robust-predicates@3.0.2/8ac9039b.js">
+<link rel="icon" href="./_file/observable.1af93621.png" type="image/png" sizes="32x32">
+<script type="module">
+
+import {define} from "./_observablehq/client.fe862d18.js";
+
+define({id: "c60683c1", inputs: ["Inputs","view"], outputs: ["rows","cols","nrows","ncols"], body: (Inputs,view) => {
+var rows = Inputs.number([1,10],{width: "100px" , value: 1, label: "Rows:"}) ; 
+var cols = Inputs.number([1,10],{width: "100px" ,value: 1, label: "Cols:"}) ; 
+var nrows = view(rows) ; 
+var ncols = view(cols) ; 
+return {rows,cols,nrows,ncols};
+}});
+
+define({id: "bc51e9e6", mode: "inline", inputs: ["rows","display"], body: async (rows,display) => {
+display(await(
+rows
+))
+}});
+
+define({id: "4447b987", mode: "inline", inputs: ["cols","display"], body: async (cols,display) => {
+display(await(
+cols
+))
+}});
+
+define({id: "6e00cd56", mode: "inline", inputs: ["matrix","display"], body: async (matrix,display) => {
+display(await(
+matrix
+))
+}});
+
+define({id: "342f1ae3", inputs: ["d3","nrows","ncols","Inputs","htl","view"], outputs: ["inputs_array","matrix","matrix_values"], body: (d3,nrows,ncols,Inputs,htl,view) => {
+var inputs_array = d3.range(nrows*ncols).map(d=>Inputs.number([-100,100],{value:0,  step:.01, width:"100px;"}))
+
+/* for (let r=0;r<nrows; r+=1) {
+    for (let c=0;c<ncols; c+=1) {
+      var j = 10*r + c ; 
+      inputs_array[j][0].disabled=false
+    }
+}
+ */
+var matrix = Inputs.form(
+  inputs_array,
+  {
+    template(inputs) {
+      return htl.html`<div style="display:grid;grid-template-columns:repeat(${ncols}, 100px)">${inputs}</div>`;
+    }
+  }
+); 
+var matrix_values = view(matrix) ; 
+return {inputs_array,matrix,matrix_values};
+}});
+
+define({id: "8c15fdb7", inputs: ["list_to_matrix","matrix_values","nrows","ncols","rowReduce","maketable"], outputs: ["m","mcopy","n","spot"], body: (list_to_matrix,matrix_values,nrows,ncols,rowReduce,maketable) => {
+var m = list_to_matrix(matrix_values,nrows,ncols) ; 
+var mcopy = m.map(arr => arr.slice()) ; 
+var n = rowReduce(mcopy) ; 
+var spot = document.getElementById("result")
+spot.innerHTML = maketable(n,nrows,ncols)
+return {m,mcopy,n,spot};
+}});
+
+define({id: "bb995a9f", outputs: ["list_to_matrix"], body: () => {
+function list_to_matrix(data,rows,columns) {
+  var result = [];
+  for (var r = 0; r < rows; r++) {
+    result.push(data.slice(r*columns, r*columns+columns));
+  }
+  return result;
+}
+return {list_to_matrix};
+}});
+
+define({id: "a610c6be", outputs: ["rowReduce"], body: () => {
+function rowReduce(matrix) {
+    const numRows = matrix.length;
+    const numCols = matrix[0].length;
+    let pivotRow = 0;
+    for (let col = 0; col < numCols && pivotRow < numRows; col++) {
+        let pivotFound = false;
+        for (let row = pivotRow; row < numRows; row++) {
+            if (matrix[row][col] !== 0) {
+                pivotFound = true;
+                if (row !== pivotRow) {
+                    [matrix[pivotRow], matrix[row]] = [matrix[row], matrix[pivotRow]]; // Swap rows  
+                }
+                // Normalize the pivot row
+                const pivot = matrix[pivotRow][col];
+                for (let j = col; j < numCols; j++) {
+                    matrix[pivotRow][j] /= pivot;
+                }
+                // Eliminate all other elements in the current column
+                for (let i = 0; i < numRows; i++) {
+                    if (i !== pivotRow) {
+                        const factor = matrix[i][col];
+                        for (let j = col; j < numCols; j++) {
+                            matrix[i][j] -= factor * matrix[pivotRow][j];
+                        }
+                    }
+                }
+                pivotRow++; // Move to the next row for the next pivot
+                break; // Move to the next column
+            }
+        }
+        if (!pivotFound) {
+
+        }
+    }
+    return matrix;
+}
+return {rowReduce};
+}});
+
+define({id: "2029b16d", inputs: ["nrows","ncols"], outputs: ["maketable"], body: (nrows,ncols) => {
+function maketable(data, rows, cols) {
+  var s = "<table>\n"
+  for (let r=0;r<nrows; r+=1) {
+    s+="<tr>"
+    for (let c=0;c<ncols; c+=1) {
+        s+=`<td>${data[r][c].toFixed(3)}</td>`
+      }
+    s+=`</tr>\n`
+  }
+  s+=`</table>\n`
+  return s
+
+}
+return {maketable};
+}});
+
+</script>
+<div id="observablehq-center">
+<main id="observablehq-main" class="observablehq">
+<h1 id="rref-calculator" tabindex="-1"><a class="observablehq-header-anchor" href="#rref-calculator">RREF Calculator</a></h1>
+<style>
+  form:has([disabled]) {
+  background: gray;
+}
+
+form [disabled] {
+  background: gray;
+}
+
+table {
+  table-layout: fixed; 
+  width: auto;
+  margin: 0 auto; 
+}
+
+table, th, td {
+ width: 100px ;   
+ border: 2px solid;
+ padding: 5px ; 
+}
+
+
+</style>
+<div class="observablehq observablehq--block"><!--:c60683c1:--></div>
+<div class="grid grid-cols-2">
+  <div class="card"><observablehq-loading></observablehq-loading><!--:bc51e9e6:--></div>
+  <div class="card"><observablehq-loading></observablehq-loading><!--:4447b987:--></div>
+</div>
+<div class="grid">
+<div class="card" style="margin: auto;">
+<h2> Input Matrix </h2>
+<observablehq-loading></observablehq-loading><!--:6e00cd56:-->
+</div>
+</div>
+<div class="observablehq observablehq--block"><!--:342f1ae3:--></div>
+<div class="observablehq observablehq--block"><!--:8c15fdb7:--></div>
+<div class="grid">
+<div class="card" style="margin: auto;">
+<h2> Row Reduced Echelon Form</h2>
+<div id="result">
+</div>
+</div>
+</div>
+<div class="observablehq observablehq--block"><!--:bb995a9f:--></div>
+<div class="observablehq observablehq--block"><!--:a610c6be:--></div>
+<div class="observablehq observablehq--block"><!--:2029b16d:--></div>
+</main>
+<footer id="observablehq-footer">
+<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2024-08-16T09:03:52">Aug 16, 2024</a>.</div>
+</footer>
+</div>
