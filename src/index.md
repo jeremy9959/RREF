@@ -2,34 +2,32 @@
 title: RREF
 toc: false
 ---
-
-# RREF Calculator
 <style>
-  
+
 
 table {
-  table-layout: fixed; 
-  width: auto;
-  margin: 0 auto;
-  border: 0px solid ; 
-  border-spacing: 0px 3px ; 
-  border-collapse: separate ; 
+    table-layout: fixed; 
+    width: auto;
+    margin: 0 auto;
+    border: 0px solid ; 
+    border-spacing: 0px 3px ; 
+    border-collapse: separate ; 
+  
+  }
+  
+  th, td {
+   width: 100px ;   
+   border-top: 1px solid;
+   border-bottom: 1px solid ; 
+   border-left: .5px solid ; 
+   border-right: .5px solid ; 
+   border-radius: 2px ; 
+   padding: 2px ;   
+   background-color: #2b2a33 ; 
+  }
+  </style>
 
-}
-
-th, td {
- width: 100px ;   
- border-top: 1px solid;
- border-bottom: 1px solid ; 
- border-left: .5px solid ; 
- border-right: .5px solid ; 
- border-radius: 2px ; 
- padding: 2px ;   
- background-color: #2b2a33 ; 
-}
-
-
-</style>
+# RREF Calculator
 
 ```js
 var rows = Inputs.number([1,10],{width: "100px" , value: 1, label: "Rows:"}) ; 
