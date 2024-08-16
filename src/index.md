@@ -5,24 +5,27 @@ toc: false
 
 # RREF Calculator
 <style>
-  form:has([disabled]) {
-  background: gray;
-}
-
-form [disabled] {
-  background: gray;
-}
+  
 
 table {
   table-layout: fixed; 
   width: auto;
-  margin: 0 auto; 
+  margin: 0 auto;
+  border: 0px solid ; 
+  border-spacing: 0px 3px ; 
+  border-collapse: separate ; 
+
 }
 
-table, th, td {
+th, td {
  width: 100px ;   
- border: 2px solid;
- padding: 5px ; 
+ border-top: 1px solid;
+ border-bottom: 1px solid ; 
+ border-left: .5px solid ; 
+ border-right: .5px solid ; 
+ border-radius: 2px ; 
+ padding: 2px ;   
+ background-color: #2b2a33 ; 
 }
 
 
@@ -137,7 +140,7 @@ function rowReduce(matrix) {
 
 ```js
 function maketable(data, rows, cols) {
-  var s = "<table>\n"
+  var s = `<table>\n`
   for (let r=0;r<nrows; r+=1) {
     s+="<tr>"
     for (let c=0;c<ncols; c+=1) {
